@@ -12,6 +12,112 @@ const render = require("./lib/htmlRenderer");
 
 
 // Write code to use inquirer to gather information about the development team members,
+
+function employees() {
+
+    inquirer.prompt([
+        {
+            type: "List",
+            name: "chooseEmployee",
+            messgae: "Add Employee Class",
+            choices: [
+                "Manager",
+                "Engineer",
+                "Intern",
+                "All done!"
+
+            ]
+
+        }
+    ])
+        .then(function (data) {
+            if (data.chooseEmployee === "Manager") {
+                manager();
+            }
+            else if (data.chooseEmployee === "Engineer") {
+                engineer();
+            }
+            else if (data.chooseEmployee === "Intern") {
+                intern();
+            };
+        });
+};
+
+function manager(){
+    inquirer.prompt([
+        {
+            type: "input",
+        name: "nameManager",
+        message: "Enter Name Here"
+    },
+    {
+        type: "input",
+        name: "managerId",
+        message: "Enter Employee ID Here"
+    },
+    {
+        type: "input",
+        name: "emailManager",
+        message: "Enter Email here"
+    },
+    {
+        type: "input",
+        name: "officeNumber",
+        message: "Enter Employee Office #"
+    }
+])};
+
+function engineer(){
+    inquirer.prompt([
+        {
+            type: "input",
+        name: "nameEngineer",
+        message: "Enter Name Here"
+    },
+    {
+        type: "input",
+        name: "engineerId",
+        message: "Enter Employee ID Here"
+    },
+    {
+        type: "input",
+        name: "emailEngineer",
+        message: "Enter Email here"
+    },
+    {
+        type: "input",
+        name: "githubEngineer",
+        message: "Enter GitHub Username here"
+    }
+])};
+
+function intern(){
+    inquirer.prompt([
+        {
+            type: "input",
+        name: "nameintern",
+        message: "Enter Name Here"
+    },
+    {
+        type: "input",
+        name: "engineerId",
+        message: "Enter Employee ID Here"
+    },
+    {
+        type: "input",
+        name: "emailIntern",
+        message: "Enter Email here"
+    },
+    {
+        type: "input",
+        name: "schoolIntern",
+        message: "Enter School Attending here"
+    }
+])};
+
+employees();
+
+
 // and to create objects for each team member (using the correct classes as blueprints!)
 
 // After the user has input all employees desired, call the `render` function (required
